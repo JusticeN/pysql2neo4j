@@ -137,8 +137,10 @@ def getSqlDbUri():
     otherOptions = [x for x in __config.items(__SQLDBSECTION)
                     if x[0] not in __STANDARD_OPTIONS]
     query = {k: v for (k, v) in otherOptions}
+    #return url.URL(driver, username=user, password=password, host=host, port=port, database=schema, query=query)
+    # for postgres 9.3 no charset 
     return url.URL(driver, username=user, password=password,
-                   host=host, port=port, database=schema, query=query)
+                   host=host, port=port, database=schema)
 
 
 def __getGraphNetLoc():

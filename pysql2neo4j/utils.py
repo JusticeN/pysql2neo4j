@@ -38,8 +38,12 @@ def listFlatten(seq):
 
 
 #Thanks http://stackoverflow.com/a/11111177/2822594
+# error date - datetime on postgres http://stackoverflow.com/questions/1937622/convert-date-to-datetime-in-python
 def unix_time(dt):
     '''returns a timedelta from unix epoch'''
+    #print "##", dt, "###", unixEpoch
+    dt = datetime.datetime(dt.year, dt.month, dt.day)
+    #print "##", dt, "###", unixEpoch
     delta = dt - unixEpoch
     return delta.total_seconds()
 
